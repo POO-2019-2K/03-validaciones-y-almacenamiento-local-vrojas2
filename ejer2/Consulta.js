@@ -38,10 +38,12 @@ export default class Consulta {
     let cellDate = row.insertCell(0);
     let cellHora = row.insertCell(1);
     let cellName = row.insertCell(2);
+    let cellDias = row.insertCell(3);
 
     cellDate.innerHTML = employee.getDateAsString();
     cellName.innerHTML = employee.name;
     cellHora.innerHTML = employee.hora;
+    cellDias.innerHTML = consulta.getAge()
 
     this._numEmployees++; // this._numEmployees = this._numEmployees + 1
     this._sumAge += employee.getAge(); // this._sumAge = this._sumAge + employee.getAge()

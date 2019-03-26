@@ -8,10 +8,6 @@ export default class Employee {
         "May", "Jun", "Jul", "Ago",
         "Sep", "Oct", "Nov", "Dic"
       ];
-      this._diasS = [
-        "Lunes", "Martes", "Miércoles",
-        "Jueves", "Viernes", "Sábado","Domingo"
-      ];
     }
   
     get date() {
@@ -44,10 +40,14 @@ export default class Employee {
   
     getAge() {
       let oneDay = 24 * 60 * 60 * 1000;
-      let oneYear = oneDay * 365;
-      let differenceMs = new Date() - this._date;
-      let age = Math.trunc(differenceMs / oneYear);
-  
-      return age;
+      let differenceMs = (this._fecha-new Date());
+      let d = Math.trunc(differenceMs / oneDay);
+      if(d >= 0) {
+          return d+1;
+      }
+      
+      else if(d < 0) {
+          return "-";
+      }
     }
   }

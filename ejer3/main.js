@@ -1,9 +1,9 @@
-import Empleado from "./Empleado.js";
+import Gasto from "./Gasto.js";
 import Employee from "./Employee.js";
 
 class Main {
   constructor() {
-    let empleado = new Empleado(
+    let empleado = new Gasto(
       document.querySelector("#Empleado"),
       document.querySelector("#info")
     );
@@ -13,23 +13,19 @@ class Main {
       form.classList.add("was-validated");
 
      if(form.checkValidity() === true) {
-      let name = document.querySelector("#name").value;
-      let numTrabajador = document.querySelector("#numTrabajador").value;
-      let sBirthday = document.querySelector("#birthday").value;
-      let sDateContratacion = document.querySelector("#dateContratacion").value;
-      let sueldo = document.querySelector("#sueldo").value;
-      sBirthday = sBirthday.split("-");
-      sDateContratacion = sDateContratacion.split("-");
+      let tipo = document.querySelector("#tipo").value;
+      let concepto = document.querySelector("#concepto").value;
+      let monto = document.querySelector("#monto").value;
+      let sDate = document.querySelector("#fecha").value;
+      sDate = sDate.split("-");
 
-      let birthday = new Date(sBirthday[0], sBirthday[1] - 1, sBirthday[2]);
-      let dateContratacion = new Date(sDateContratacion[0], sDateContratacion[1] - 1, sDateContratacion[2]);
+      let date = new Date(sDate[0], sDate[1] - 1, sDate[2]);
 
       let objEmployee = {
-        name: name,
-        numTrabajador: numTrabajador,
-        birthday: birthday,
-        dateContratacion: dateContratacion,
-        sueldo: sueldo,
+        date: date,
+        tipo: tipo,
+        concepto: concepto,
+        monto: monto
       }
 
       let employee = new Employee(objEmployee);

@@ -20,64 +20,31 @@ export default class Employee {
         "Dic"
       ];
     }
-  
-    get numTrabajador() {
-      return this._numTrabajador;
+
+    get date() {
+        return this._date;
     }
 
-    get name() {
-      return this._name;
-    }
-  
-    get birthday() {
-      return this._birthday;
-    }
-  
-    get dateContratacion() {
-      return this._dateContratacion;
+    get tipo() {
+        return this._tipo;
     }
 
-    get sueldo() {
-      return this._sueldo;
+    get concepto() {
+        return this._concepto;
     }
 
-    getBirthdayAsString() {
+    get monto() {
+        return this._monto;
+    }
+
+    getDateAsString() {
       let date =
-        this._birthday.getDate() +
+        this._date.getDate() +
         "/" +
-        this._months[this._birthday.getMonth()] +
+        this._months[this._date.getMonth()] +
         "/" +
-        this._birthday.getFullYear();
+        this._date.getFullYear();
   
       return date;
-    }
-
-    getDateContratacionAsString() {
-      let date1 =
-        this._dateContratacion.getDate() +
-        "/" +
-        this._months[this._dateContratacion.getMonth()] +
-        "/" +
-        this._dateContratacion.getFullYear();
-  
-      return date1;
-    }
-  
-    getAge() {
-      let oneDay = 24 * 60 * 60 * 1000;
-      let oneYear = oneDay * 365;
-      let differenceMs = new Date() - this._birthday;
-      let age = Math.trunc(differenceMs / oneYear);
-  
-      return age;
-    }
-
-    getAntiguedad(){
-      let oneDay = 24 * 60 * 60 * 1000;
-      let oneYear = oneDay * 365;
-      let differenceMs = new Date() - this._dateContratacion;
-      let age1 = Math.trunc(differenceMs / oneYear);
-
-      return age1;
     }
   }
