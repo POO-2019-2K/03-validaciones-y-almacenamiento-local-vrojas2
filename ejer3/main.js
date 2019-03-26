@@ -3,7 +3,7 @@ import Employee from "./Employee.js";
 
 class Main {
   constructor() {
-    let empleado = new Gasto(
+    let gasto = new Gasto(
       document.querySelector("#Empleado"),
       document.querySelector("#info")
     );
@@ -30,7 +30,7 @@ class Main {
 
       let employee = new Employee(objEmployee);
 
-      empleado.addEmployee(employee);
+      gasto.addEmployee(employee);
 
      }
       

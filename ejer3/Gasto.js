@@ -1,8 +1,8 @@
 import Employee from "./Employee.js";
 
 export default class Gasto {
-  constructor(tableEmpleado, tableInfo) {
-    this._tableEmpleado = tableEmpleado;
+  constructor(tableGasto, tableInfo) {
+    this._tableGasto = tableGasto;
     this._tableInfo = tableInfo;
     this._transporte = 0;
     this._alimento = 0;
@@ -14,58 +14,58 @@ export default class Gasto {
   }
 
   _initTables() {
-    let gastos = JSON.parse(localStorage.getItem("gastos"));
-    if(gastos === null) {
+    let employees = JSON.parse(localStorage.getItem("employees"));
+    if(employees === null) {
         return;
     }
-    gastos.forEach((gasto, index) => {
-        gasto.fecha = new Date(gasto.fecha);
-        this._showInTable(new Gasto(gasto));
+    employees.forEach((employee, index) => {
+        employee.date = new Date(employee.date);
+        this._showInTable(new Employee(employee));
        
     });
 }
 
-  _showInTable(gasto) {
-    let row = this._tableAgenda.insertRow(-1);
+  _showInTable(employee) {
+    let row = this._tableGasto.insertRow(-1);
 
     let cellFecha = row.insertCell(0);
     let cellTipo = row.insertCell(1);
     let cellConcepto = row.insertCell(2);
     let cellMonto = row.insertCell(3);
 
-    cellFecha.innerHTML = gasto.getFecha();
-    cellTipo.innerHTML = gasto.tipo;
-    cellConcepto.innerHTML = gasto.concepto;
-    cellMonto.innerHTML = gasto.monto;
+    cellFecha.innerHTML = employee.getFecha();
+    cellTipo.innerHTML = employee.tipo;
+    cellConcepto.innerHTML = employee.concepto;
+    cellMonto.innerHTML = employee.monto;
 
-    if(gasto.tipo === "transporte") {
-        this._transporte = Number(gasto.monto) + this._transporte;
+    if(employee.tipo === "transporte") {
+        this._transporte = Number(employee.monto) + this._transporte;
         this._tableInfo.rows[0].cells[1].innerHTML = this._transporte;
     }
-    else if(gasto.tipo === "alimento") {
-        this._alimento = Number(gasto.monto) + this._alimento;
+    else if(employee.tipo === "alimento") {
+        this._alimento = Number(employee.monto) + this._alimento;
         this._tableInfo.rows[1].cells[1].innerHTML = this._alimento;
     }
-    else if(gasto.tipo === "hospedaje") {
-      this._hospedaje = Number(gasto.monto) + this._hospedaje;
+    else if(employee.tipo === "hospedaje") {
+      this._hospedaje = Number(employee.monto) + this._hospedaje;
       this._tableInfo.rows[2].cells[1].innerHTML = this._hospedaje;
   }
-    else if(gasto.tipo === "otro") {
-        this._otro = Number(gasto.monto) + this._otro;
+    else if(employee.tipo === "otro") {
+        this._otro = Number(employee.monto) + this._otro;
         this._tableInfo.rows[3].cells[1].innerHTML = this._otro;
     }
 
-    let objGasto = {
-        fecha: gasto.fecha,
-        tipo: gasto.tipo,
-        concepto: gasto.concepto,
-        monto: gasto.monto
+    let objEmployee = {
+        fecha: employee.fecha,
+        tipo: employee.tipo,
+        concepto: employee.concepto,
+        monto: employee.monto
     }
-    this._gastos.push(objGasto);
+    this._employees.push(objEmployee);
   }
-  addGasto(gasto) {
-    this._showInTable(gasto);
-    localStorage.setItem("gastos", JSON.stringify(this._gastos));
+  addEmployee(employee) {
+    this._showInTable(employee);
+    localStorage.setItem("employees", JSON.stringify(this._employees));
   }
 }
 

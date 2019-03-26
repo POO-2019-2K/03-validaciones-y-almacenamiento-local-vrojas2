@@ -87,6 +87,5 @@ export default class Consulta {
   addEmployee(employee) {
     this._showInTable(employee);
       localStorage.setItem("employees", JSON.stringify(this._employees));
-      console.log(localStorage.getItem("employees"));
   }
 }

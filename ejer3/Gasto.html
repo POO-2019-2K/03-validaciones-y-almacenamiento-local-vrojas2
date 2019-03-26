@@ -11,7 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="Empleado.css" />
+    <link rel="stylesheet" type="text/css" href="Costo.css" />
   </head>
   <body>
     <div class="jumbotron">
@@ -31,48 +31,41 @@
                   <div class="invalid-feedback">Introduzca una fecha válida</div>
                 </div>
                 <div class="form-group">
-                <label for="numTrabajador">Número de Trabajador</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  id="numTrabajador"
-                  placeholder="12345"
-                  required
-                />
+                 <label for="tipo">Tipo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tipo"
+                    placeholder="Tipo de gasto"
+                    required
+                  />
                 <div class="valid-feedback">Correcto</div>
                 <div class="invalid-feedback">El campo de nombre es obligatorio</div>
               </div>
               <div class="form-group">
-                <label for="name">Nombre Completo</label>
+                <label for="concepto">Concepto</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="name"
-                  placeholder="Juan Pérez"
+                  id="concepto"
+                  placeholder="Concepto"
                   required
                 />
                 <div class="valid-feedback">Correcto</div>
                 <div class="invalid-feedback">El campo de nombre es obligatorio</div>
               </div>
               <div class="form-group">
-                <label for="birthday">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="birthday" />
+                <label for="monto">Monto</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="monto"
+                  placeholder="$$"
+                  required
+                />
                 <div class="valid-feedback">Correcto</div>
                 <div class="invalid-feedback">Introduzca una fecha válida</div>
               </div>
-              
-                <div class="form-group">
-                  <label for="sueldo">Sueldo</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="sueldo"
-                    placeholder="10000"
-                    required
-                  />
-                  <div class="valid-feedback">Correcto</div>
-                  <div class="invalid-feedback">El campo de nombre es obligatorio</div>
-                </div>
               <button id="btnAdd" type="button" class="btn btn-primary">
                 Agregar
               </button>
@@ -86,24 +79,20 @@
                   <td>Valor</td>
                 </tr>
                 <tr>
-                  <td>Empleados con sueldo hasta $10,000</td>
-                  <td id=""></td>
+                  <td>Gastos en transporte</td>
+                  <td id="transporte"></td>
                 </tr>
                 <tr>
-                  <td>Empleados con sueldo mayor que $10,000 y menor o igual a $20,000</td>
-                  <td id=""></td>
+                  <td>Gastos en alimentos</td>
+                  <td id="alimentos"></td>
                 </tr>
                 <tr>
-                  <td>Empleados con sueldo mayor que $20,000</td>
-                  <td id=""></td>
+                  <td>Gastos en hospedaje</td>
+                  <td id="hospedaje"></td>
                 </tr>
                 <tr>
-                  <td>Sueldo promedio</td>
-                  <td id=""></td>
-                </tr>
-                <tr>
-                  <td>Edad promedio</td>
-                  <td id="averageAge"></td>
+                  <td>Otros gastos</td>
+                    <td id="otros"></td>
                 </tr>
               </tbody>
             </table>
@@ -114,13 +103,10 @@
           <table id="Empleado" class="table">
             <thead>
               <tr>
-                <th>Número de Trabajador</th>
-                <th>Nombre Completo</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Fecha de Contratacion</th>
-                <th>Sueldo</th>
-                <th>Edad</th>
-                <th>Antiguedad</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Concepto</th>
+                <th>Monto</th>
               </tr>
             </thead>
             <tbody></tbody>
